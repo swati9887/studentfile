@@ -1,0 +1,60 @@
+from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+
+
+# main coding start
+
+def process():
+    number1 = Entry.get(E1)
+    number2 = Entry.get(E2)
+    operator = Entry.get(E3)
+    number1 = int(number1)
+    number2 = int(number2)
+    if operator == "+":
+        answer = number1 + number2
+    if operator == "-":
+        answer = number1 - number2
+    if operator == "*":
+        answer = number1 * number2
+    if operator == "/":
+        answer = number1 / number2
+    Entry.insert(E4, 0, answer)
+    print(answer)
+
+
+# main coding end
+
+# design coding start
+
+win = tk.Tk()
+
+win.title("My Calculator")
+win.geometry('500x500')
+#win.iconbitmap('icon.ico')
+win.configure(bg='cyan')
+win.maxsize(width=500, height=500)
+win.minsize(width=500, height=500)
+
+l = Label(win, text='My Calculator', fg='blue').grid(row=0, column=1, sticky=W)
+ll = Label(win, text='-----------------------', fg='red').grid(row=1, column=0, sticky=W)
+l1 = Label(win, text='First Number', ).grid(row=2, column=0, sticky=W)
+l2 = Label(win, text='Second Number', ).grid(row=3, column=0, sticky=W)
+l3 = Label(win, text='Operator', ).grid(row=4, column=0, sticky=W)
+l4 = Label(win, text='Answer', ).grid(row=5, column=0, sticky=W)
+
+E1 = Entry(win, bd=10)
+E1.grid(row=2, column=1)
+E2 = Entry(win, bd=10)
+E2.grid(row=3, column=1)
+E3 = Entry(win, bd=10)
+E3.grid(row=4, column=1)
+E4 = Entry(win, bd=10)
+E4.grid(row=5, column=1)
+
+B = Button(win, text="Submit", command=process, bg='white').grid(row=6, column=1, )
+
+# design coding end
+
+
+win.mainloop()
